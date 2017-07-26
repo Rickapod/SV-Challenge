@@ -1,0 +1,46 @@
+<div>
+  <div>
+    <h2>Profile Detail</h2>
+    <div class='hr'>
+      <hr />
+    </div>
+    <div class='userDetails'>
+      <h3>Placeholder for name</h3>
+      <div>
+        <img src="./">
+        <h4>Address</h4>
+      </div>
+      <div>
+        <img src="./">
+        <h4>Phone Number</h4>
+      </div>
+      <div>
+        <img src="./">
+        <h4>Email</h4>
+      </div>
+    </div>
+    <div class='posts'>
+      <div class='post'>
+        <p>placeholder for posts</p>
+      </div>
+    </div> 
+  </div>
+  <ul>
+    <li *ngFor= "let post of posts">
+      <h3> {{ post.title }}</h3>
+      <p> <span> {{ post.id }} </span>{{ post.body }} </p>
+      <div>
+        <ul>
+          <ng-container *ngFor ='let comment of comments'>
+          <li *ngIf = 'comment.postId === post.id'>
+              <h4> {{ comment.name }}</h4>
+              <p> {{ comment.body }} </p>
+          </li>
+          </ng-container>
+        </ul>
+      </div>
+      <hr />
+      <!-- place holder for comments-->
+    </li>
+  </ul>
+</div>

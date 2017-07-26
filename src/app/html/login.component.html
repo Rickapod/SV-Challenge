@@ -1,0 +1,15 @@
+<!-- <div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <img width="300" src="../assets/images/dunderMifflinLogo.png">
+</div> -->
+<div>
+  <h2>Welcome to Dunder-Mifflin internal network.</h2>
+  <p>Please enter a username to view your posts and comments</p>
+  <i *ngIf ="isValidEmail">Invalid Email</i>
+  <input [(ngModel)]= "email" (ngModelChange)='checkValid()' type="email" placeholder="email address" >
+  <div>
+    <button (click)='login()'>Login</button>
+  </div>
+</div>
