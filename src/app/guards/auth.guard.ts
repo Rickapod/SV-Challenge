@@ -1,20 +1,26 @@
 import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
+import { CanActivate } from "@angular/router";
+
+import { Store } from '@ngrx/store';
+
+
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  private isLoggedIn = false;
-  canActivate(bool) {
-    if (bool) {
-      this.isLoggedIn = true;
-    }
-    return this.isAuthorized();
+  public user;
+
+  constructor(
+    private store: Store<any>) {
+      store.select('user').subscribe(user => this.user = user)
   }
 
-  private isAuthorized(): boolean {
-    if (!this.isLoggedIn) {
-      // alert('unrecognized email')
+  canActivate() {
+    if (this.user.email) {
+      console.log('reached here')
+      return true
+    } else {
+      return false
     }
-    return this.isLoggedIn
-  } 
+  }
+
 }

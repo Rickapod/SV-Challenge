@@ -1,0 +1,30 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.container {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.input { 
+  position: relative;
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+}
+.inputField {
+  position: relative;
+  width: 100%
+
+}
+.invalid {
+  color: red;
+  font-size: small;
+  float: left;
+}
+
+.button {
+  position: relative;
+  width: 100%;
+  float: center;
+}

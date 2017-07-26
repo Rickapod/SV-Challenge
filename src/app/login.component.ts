@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-
+import { Store } from '@ngrx/store'
+import { UserReducer } from './reducers/user.reducer';
 
 import { UsersService } from './services/users.service';
 import { User } from './classes/user'
@@ -23,6 +24,7 @@ export class LoginComponent {
     private userService: UsersService, 
     private authGuard: AuthGuard,
     private router: Router,
+    private store: Store<any>,
     ) {}
 
   getUsers() : void {
@@ -45,15 +47,11 @@ export class LoginComponent {
   login() {
     for (let user of this.users) {
       if (this.email === user.email) {
-        this.router.navigate(['/posts']);
-         // this.authGuard.canActivate(true);
-      } else {
-        // this.router.navigate(['/login'])
-        // this.authGuard.canActivate(false);
-      }
+        this.store.dispatch({type: 'USER_LOGIN_SUCCESS', payload: user});
+        this.authGuard.canActivate();
+        this.router.navigate(['/posts'])
+      } 
     }
-    
   }
-
 }
 

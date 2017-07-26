@@ -1,46 +1,44 @@
 <div>
-  <div>
+  <!-- <div class='userDetails'> -->
+  <div class='col-4 userDetails'>
     <h2>Profile Detail</h2>
     <div class='hr'>
       <hr />
     </div>
-    <div class='userDetails'>
-      <h3>Placeholder for name</h3>
-      <div>
-        <img src="./">
-        <h4>Address</h4>
-      </div>
-      <div>
-        <img src="./">
-        <h4>Phone Number</h4>
-      </div>
-      <div>
-        <img src="./">
-        <h4>Email</h4>
-      </div>
+    <h3>{{ user.name }}</h3>
+    <div class='row-2'>
+      <img class='col-3 icon' src="../assets/images/pin.png">
+      <h4 class='userInfo col-8'>{{ user.address.street }}, {{ user.address.suite }}, {{ user.address.city }}, {{ user.address.zipcode }}</h4>
     </div>
-    <div class='posts'>
-      <div class='post'>
-        <p>placeholder for posts</p>
-      </div>
-    </div> 
+    <div class='row-2'>
+      <img class='col-3 icon' src="../assets/images/phone.png">
+      <h4 class='userInfo col-8'>{{ user.phone }}</h4>
+    </div>
+    <div class='row-2'>
+      <img class='col-3 icon' src="../assets/images/email.png">
+      <h4 class='userInfo col-8'> {{ user.email }}</h4>
+    </div>
   </div>
-  <ul>
-    <li *ngFor= "let post of posts">
-      <h3> {{ post.title }}</h3>
-      <p> <span> {{ post.id }} </span>{{ post.body }} </p>
-      <div>
-        <ul>
-          <ng-container *ngFor ='let comment of comments'>
-          <li *ngIf = 'comment.postId === post.id'>
-              <h4> {{ comment.name }}</h4>
-              <p> {{ comment.body }} </p>
-          </li>
-          </ng-container>
-        </ul>
-      </div>
-      <hr />
-      <!-- place holder for comments-->
-    </li>
-  </ul>
+    <ul>
+      <li *ngFor= "let post of posts" class='col-7 posts'>
+        <div>
+          <b>Post</b>
+          <h3> {{ post.title }}</h3>
+          <p class='body'> {{ post.body }} </p>
+        </div>
+        <div class='comments'>
+          <b>Comments</b>
+          <ul>
+            <ng-container *ngFor ='let comment of comments'>
+            <li *ngIf = 'comment.postId === post.id' class='comment'>
+                <h4> {{ comment.name }}</h4>
+                <p class='body'> {{ comment.body }} </p>
+                <hr />
+            </li>
+            </ng-container>
+          </ul>
+        </div>
+        <!-- place holder for comments-->
+      </li>
+    </ul>  
 </div>

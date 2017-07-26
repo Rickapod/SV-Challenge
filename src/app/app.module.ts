@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { StoreModule } from '@ngrx/store';
+import { UserReducer } from './reducers/user.reducer'
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
 import { PostsComponent } from './posts.component';
@@ -24,6 +27,7 @@ import { AppRoutingModule }     from './app-routing.module';
     FormsModule,
     HttpModule, 
     AppRoutingModule,
+    StoreModule.forRoot({ user: UserReducer })
   ],
   declarations: [
     AppComponent,

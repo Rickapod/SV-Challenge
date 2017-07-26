@@ -1,0 +1,41 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.userDetails {
+  border: 3px solid black;
+  box-sizing: border-box;
+  float:left;
+}
+
+.posts {
+  display: block;
+  border: 3px solid black;
+  list-style-type: none;
+  margin: 5px;
+  padding: 10px;
+  float: right;
+}
+
+.posts .body {
+  padding-left: 20px;
+}
+
+.comments {
+  border-top: 3px solid black;
+}
+.comment {
+  list-style-type: none;
+}
+
+.comment .body {
+  padding-left:20px;
+  color:red;
+}
+.icon {
+  display: block;
+  float:left;
+}
+
+.userInfo {
+  float:right;
+}

@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 
+import { Store } from '@ngrx/store';
+
 import { PostsService } from './services/posts.service';
 import { CommentsService } from './services/comments.service';
 
 import { Post } from './classes/post';
 import { Comment } from './classes/comment';
+
 
 @Component({
   selector: 'posts',
@@ -13,10 +16,16 @@ import { Comment } from './classes/comment';
 })
 
 export class PostsComponent {
+  public user;
   private posts: Post[];
   private comments: Comment[];
 
-  constructor (private postsService: PostsService, private commentsService: CommentsService) {}
+  constructor (
+    private postsService: PostsService, 
+    private commentsService: CommentsService,
+    private store: Store<any>) {
+      store.select('user').subscribe(user => this.user = user)
+  }
 
   getPosts(): void {
     this.postsService.getPosts().subscribe(post => {this.posts = post});
@@ -27,6 +36,8 @@ export class PostsComponent {
   }
 
   ngOnInit(): void {
+    console.log('test');
+    console.log(this.user.name);
     this.getPosts();
     this.getComments();
   }
