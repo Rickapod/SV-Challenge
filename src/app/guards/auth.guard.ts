@@ -16,7 +16,6 @@ export class AuthGuard implements CanActivate {
 
   canActivate() {
     if (this.user.email) {
-      console.log('reached here')
       return true
     } else {
       return false

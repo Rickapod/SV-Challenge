@@ -9,15 +9,19 @@
 
 .posts {
   display: block;
-  border: 3px solid black;
-  list-style-type: none;
-  margin: 5px;
-  padding: 10px;
   float: right;
+  padding:0px;
 }
 
-.posts .body {
-  padding-left: 20px;
+.post {
+  border: 3px solid black;
+  list-style-type: none;
+  padding:10px;
+  margin: 3px;
+}
+
+.post .body {
+  padding-left: 30px;
 }
 
 .comments {
@@ -29,13 +33,20 @@
 
 .comment .body {
   padding-left:20px;
-  color:red;
+  color: darkgrey;
 }
 .icon {
-  display: block;
-  float:left;
+  height: 5%;
+  width:5%;
+  /*float:left;*/
 }
 
 .userInfo {
-  float:right;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.michael {
+
 }

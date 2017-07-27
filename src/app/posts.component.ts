@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
@@ -15,7 +15,7 @@ import { Comment } from './classes/comment';
   styleUrls: ['./stylesheets/posts.component.css']
 })
 
-export class PostsComponent {
+export class PostsComponent implements OnInit {
   public user;
   private posts: Post[];
   private comments: Comment[];

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Store } from '@ngrx/store'
@@ -14,7 +14,7 @@ import { AuthGuard } from './guards/auth.guard';
   templateUrl: './html/login.component.html',
   styleUrls: ['./stylesheets/login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   private users: User[];
   private isValidEmail: boolean = false;
   private emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
