@@ -38,15 +38,10 @@
 .icon {
   height: 5%;
   width:5%;
-  /*float:left;*/
 }
 
 .userInfo {
   display: flex;
   justify-content: right;
   align-items: center;
-}
-
-.michael {
-
 }

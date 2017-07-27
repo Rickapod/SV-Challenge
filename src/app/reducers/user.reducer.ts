@@ -9,7 +9,6 @@ const initialState: State = {
 }
 
 export function UserReducer(state = initialState, action) {
-  //return new state
   switch (action.type) {
     case "USER_LOGIN_SUCCESS":
       return Object.assign({}, state, action.payload);
