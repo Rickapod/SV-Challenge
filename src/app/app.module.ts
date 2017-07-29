@@ -10,6 +10,8 @@ import { UserReducer } from './reducers/user.reducer'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
 import { PostsComponent } from './posts.component';
+import { FailedLogin } from './alerts/failed-login.component';
+
 
 import { PostsService } from './services/posts.service';
 import { UsersService } from './services/users.service';
@@ -25,18 +27,19 @@ import { AppRoutingModule }     from './app-routing.module';
     FormsModule,
     HttpModule, 
     AppRoutingModule,
-    StoreModule.forRoot({ user: UserReducer })
+    StoreModule.forRoot({ user: UserReducer }),
   ],
   declarations: [
     AppComponent,
     LoginComponent,
     PostsComponent,
+    FailedLogin,
   ],
   providers: [
     PostsService,
     UsersService,
     CommentsService,
-    AuthGuard
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

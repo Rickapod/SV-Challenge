@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   private isValidEmail: boolean = false;
   private emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   private email = '';
+  private displayAlert = false;
 
   constructor (
     private userService: UsersService, 
@@ -50,7 +51,10 @@ export class LoginComponent implements OnInit {
         this.store.dispatch({type: 'USER_LOGIN_SUCCESS', payload: user});
         this.authGuard.canActivate();
         this.router.navigate(['/posts'])
-      } 
+      } else {
+        console.log('hit');
+        this.displayAlert = true;
+      }
     }
   }
 }
