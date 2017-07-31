@@ -19,14 +19,15 @@ export class LoginComponent implements OnInit {
   private isValidEmail: boolean = false;
   private emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   private email = '';
-  private displayAlert = false;
+  public displayAlert = false;
 
   constructor (
     private userService: UsersService, 
     private authGuard: AuthGuard,
     private router: Router,
-    private store: Store<any>,
-    ) {}
+    private store: Store<any>, ) {
+      store.select('displayAlert').subscribe(displayAlert => this.displayAlert = displayAlert)
+    }
 
   getUsers() : void {
     this.userService.getUsers().subscribe(users => this.users = users)
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() : void {
     this.getUsers()
-    console.log(this.users)
+    // console.log(JSON.stringify(this.displayAlert))
   }
 
   checkValid() {
@@ -52,8 +53,8 @@ export class LoginComponent implements OnInit {
         this.authGuard.canActivate();
         this.router.navigate(['/posts'])
       } else {
-        console.log('hit');
-        this.displayAlert = true;
+        console.log('hit', this.displayAlert);
+        this.store.dispatch({type: 'FAILED_LOGIN', payload: true})
       }
     }
   }

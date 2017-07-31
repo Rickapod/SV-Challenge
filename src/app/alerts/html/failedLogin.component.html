@@ -1,7 +1,8 @@
   
-<div>
-  <button>x</button>
-  <h2>Failed Login</h2>
-  <p> {{ alert }}</p>
-  <button>Close</button>
+<div class='overlay'>
+  <div class='alert'>
+    <h2>Failed Login</h2>
+    <p> {{ alert }}</p>
+    <button (click)='closeAlert()'>Close</button>
+  </div>
 </div>

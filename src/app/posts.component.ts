@@ -37,7 +37,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('test');
-    console.log(this.user.name);
+    console.log(this.user, this.user.name);
     this.getPosts();
     this.getComments();
   }

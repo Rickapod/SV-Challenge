@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
 import { UserReducer } from './reducers/user.reducer'
+import { AlertReducer } from './reducers/alert.reducer'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login.component';
@@ -27,7 +28,7 @@ import { AppRoutingModule }     from './app-routing.module';
     FormsModule,
     HttpModule, 
     AppRoutingModule,
-    StoreModule.forRoot({ user: UserReducer }),
+    StoreModule.forRoot({ user: UserReducer, displayAlert: AlertReducer, }),
   ],
   declarations: [
     AppComponent,
